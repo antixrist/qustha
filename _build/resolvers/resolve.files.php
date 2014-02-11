@@ -22,7 +22,7 @@ if ($object->xpdo) {
       //        $hostUrl = host_url($_SERVER);
       //        $urlToInjectFile = $hostUrl . $modx->getOption('assets_url').$jsFolderPart .'yad.inject.js';
       //      } else {
-      $urlToInjectFile = 'https://gist.github.com/antixrist/8f76e8a2ba401d551803/raw/9b783dcab987acbc0355bfa711ce97bc97431278/yaddr.inject.js';
+      $urlToInjectFile = 'https://gist.github.com/antixrist/8f76e8a2ba401d551803/raw/545c12f718fdf23895d7ca39b09943bcd55bbc12/yaddr.inject.js';
       //      }
       $bookmarkletContent = str_replace('ABS_URL_TO_MAIN_JS_FILE', $urlToInjectFile, $bookmarkletContent);
       if (!file_put_contents($bookmarkletFile, $bookmarkletContent)) {

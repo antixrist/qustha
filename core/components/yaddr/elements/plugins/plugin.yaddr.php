@@ -121,7 +121,7 @@ switch ($modx->event->name) {
       $domain    = (strpos($_SERVER['HTTP_HOST'], 'www.') > -1) ? substr($_SERVER['HTTP_HOST'], 4) : $_SERVER['HTTP_HOST'];
       $charset   = $modx->getOption('modx_charset');
       $cookieSet = array();
-      foreach ($yaddrQRVars as $param) if (isset($queryArr[$param])) {
+      foreach ($yaddrQRVars as $param) if (isset($queryArr[$param]) && $queryArr[$param] != '') {
         $redirect = true;
         $value    = htmlentities(html_entity_decode($queryArr[$param], ENT_QUOTES, $charset), ENT_QUOTES, $charset);
         // set cookie
@@ -133,6 +133,9 @@ switch ($modx->event->name) {
       }
       // collect query string back
       $parsedUrl['query'] = http_build_query($queryArr);
+      if ($parsedUrl['query'] == '') {
+        unset($parsedUrl['query']);
+      }
       if ($redirect) {
         // unset outdated cookies
         $cookieUnset = array_diff($yaddrQRVars, $cookieSet);
@@ -149,7 +152,7 @@ switch ($modx->event->name) {
     foreach ($yaddrQRVars as $param) {
       if (isset($_COOKIE[$param])) {
         // set placeholders:
-        // [[+ydTitle]], [[+ydBody]], [[utm_term]]
+        // [[+ydTitle]], [[+ydBody]], [[+utm_term]]
         $modx->setPlaceholder($param, $_COOKIE[$param]);
       }
     }
