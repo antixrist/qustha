@@ -1,2 +1,3 @@
 ## qustha
-Only chosen..
+
+*Qu*ery *st*ring *ha*ndler
