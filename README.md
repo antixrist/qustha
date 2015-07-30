@@ -1,3 +1,3 @@
 ## qustha
 
-*Qu*ery *st*ring *ha*ndler
+**Qu**ery **st**ring **ha**ndler
