@@ -3,8 +3,8 @@
 $menus = array();
 
 $tmp = array(
-	'yaddr' => array(
-		'description' => 'yaddr_menu_desc',
+	'qustha' => array(
+		'description' => 'qustha_menu_desc',
 		'action' => array(
 			'controller' => 'index',
 		),

@@ -1,6 +1,6 @@
 <?php
 if ($object->xpdo) {
-  function host_url ($s) {
+/*  function host_url ($s) {
     $ssl      = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on') ? true : false;
     $sp       = strtolower($s['SERVER_PROTOCOL']);
     $protocol = substr($sp, 0, strpos($sp, '/')).(($ssl) ? 's' : '');
@@ -9,13 +9,13 @@ if ($object->xpdo) {
     $host     = isset($s['HTTP_X_FORWARDED_HOST']) ? $s['HTTP_X_FORWARDED_HOST'] : isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : $s['SERVER_NAME'];
 
     return $protocol.'://'.$host.$port;
-  }
+  }*/
 
   /* @var modX $modx */
   $modx =& $object->xpdo;
   switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_INSTALL:
-      $jsFolderPart       = 'components/yaddr/js/';
+/*      $jsFolderPart       = 'components/qustha/js/';
       $bookmarkletFile    = $modx->getOption('assets_path').$jsFolderPart.'bookmarklet.js';
       $bookmarkletContent = file_get_contents($bookmarkletFile);
       //      if ($_SERVER['HTTPS']) {
@@ -26,8 +26,8 @@ if ($object->xpdo) {
       //      }
       $bookmarkletContent = str_replace('ABS_URL_TO_MAIN_JS_FILE', $urlToInjectFile, $bookmarkletContent);
       if (!file_put_contents($bookmarkletFile, $bookmarkletContent)) {
-        $modx->log(modX::LOG_LEVEL_ERROR, 'yaddr install: coudn\'t rewrite "'. $urlToInjectFile .'" file!');
-      }
+        $modx->log(modX::LOG_LEVEL_ERROR, 'qustha install: coudn\'t rewrite "'. $urlToInjectFile .'" file!');
+      }*/
       break;
     case xPDOTransport::ACTION_UPGRADE:
       break;

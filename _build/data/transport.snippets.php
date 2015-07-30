@@ -3,8 +3,8 @@
 $snippets = array();
 
 $tmp = array(
-	'yaddr' => array(
-		'file' => 'yaddr',
+	'qustha' => array(
+		'file' => 'qustha',
 		'description' => '',
 	),
 );
@@ -19,11 +19,14 @@ foreach ($tmp as $k => $v) {
 		'snippet' => getSnippetContent($sources['source_core'].'/elements/snippets/snippet.'.$v['file'].'.php'),
 		'static' => BUILD_SNIPPET_STATIC,
 		'source' => 1,
-		'static_file' => 'core/components/'.PKG_NAME_LOWER.'/elements/snippets/snippet.'.$v['file'].'.php',
+		'static_file' => $devFolderName. 'core/components/'.PKG_NAME_LOWER.'/elements/snippets/snippet.'.$v['file'].'.php',
 	),'',true,true);
 
-	$properties = include $sources['build'].'properties/properties.'.$v['file'].'.php';
-	$snippet->setProperties($properties);
+  $propFile = $sources['build'].'properties/properties.'.$v['file'].'.php';
+  if (file_exists($propFile)) {
+	  $properties = include $propFile;
+	  $snippet->setProperties($properties);
+  }
 
 	$snippets[] = $snippet;
 }

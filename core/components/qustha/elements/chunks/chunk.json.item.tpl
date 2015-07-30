@@ -1,0 +1,1 @@
+[[!+value:notempty=`window.yaParams['[[!+key]] - [[!+description]]'] = '[[!+value]]';`]]

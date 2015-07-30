@@ -8,9 +8,9 @@ set_time_limit(0);
 
 require_once 'build.config.php';
 // Refresh model
-if (file_exists('build.model.php')) {
-	require_once 'build.model.php';
-}
+//if (file_exists('build.model.php')) {
+//	require_once 'build.model.php';
+//}
 
 /* define sources */
 $root = dirname(dirname(__FILE__)).'/';
@@ -39,10 +39,10 @@ $modx->setLogLevel(modX::LOG_LEVEL_INFO);
 $modx->setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 $modx->getService('error','error.modError');
 $modx->loadClass('transport.modPackageBuilder','',false, true);
-
+$modx->addPackage();
 $builder = new modPackageBuilder($modx);
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
-$builder->registerNamespace(PKG_NAME_LOWER,false,true,PKG_NAMESPACE_PATH);
+$builder->registerNamespace(PKG_NAME_LOWER,false,true,PKG_NAMESPACE_PATH_CORE, PKG_NAMESPACE_PATH_ASSETS);
 
 if (!XPDO_CLI_MODE) {echo '<pre>';}
 $modx->log(modX::LOG_LEVEL_INFO,'Created Transport Package and Namespace.');
